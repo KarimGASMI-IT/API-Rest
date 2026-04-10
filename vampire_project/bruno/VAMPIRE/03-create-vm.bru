@@ -1,0 +1,38 @@
+meta {
+  name: Create VM
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/vms
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "nom": "P41_LINUX_RL_003",
+    "titre": "RockyLinux 9.5 serveur Web projet 41",
+    "description": "Serveur web Nginx",
+    "cpu": 2,
+    "ram_go": 4,
+    "disques": [
+      {"nom": "disk_1", "capacite_go": 10},
+      {"nom": "disk_2", "capacite_go": 100}
+    ],
+    "interfaces_reseau": ["NIC_1", "NIC_2"],
+    "hyperviseur": "qemu+kvm://172.17.3.2"
+  }
+}
+
+script:post-response {
+  if ((res.status === 200 || res.status === 201) && res.body && res.body.vm && res.body.vm.id) {
+    bru.setVar("vmId", String(res.body.vm.id));
+  }
+}

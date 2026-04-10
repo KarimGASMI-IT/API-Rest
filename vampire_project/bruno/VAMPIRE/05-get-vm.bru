@@ -1,0 +1,14 @@
+meta {
+  name: Get VM by ID
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/vms/{{vmId}}
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

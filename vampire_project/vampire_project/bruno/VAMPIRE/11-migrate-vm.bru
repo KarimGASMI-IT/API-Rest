@@ -1,0 +1,22 @@
+meta {
+  name: Migrate VM
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/api/vms/{{vmId}}/migrate
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "hyperviseur": "qemu+kvm://172.17.3.99"
+  }
+}

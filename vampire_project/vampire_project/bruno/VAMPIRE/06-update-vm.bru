@@ -1,0 +1,33 @@
+meta {
+  name: Update VM
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseUrl}}/api/vms/{{vmId}}
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "nom": "P41_LINUX_RL_003",
+    "titre": "RockyLinux 9.5 serveur Web projet 41 - MAJ",
+    "description": "Serveur web Nginx mis à jour",
+    "cpu": 4,
+    "ram_go": 8,
+    "disques": [
+      {"nom": "disk_1", "capacite_go": 20},
+      {"nom": "disk_2", "capacite_go": 100}
+    ],
+    "interfaces_reseau": ["NIC_1", "NIC_2", "NIC_3"],
+    "hyperviseur": "qemu+kvm://172.17.3.2",
+    "statut": "stopped"
+  }
+}

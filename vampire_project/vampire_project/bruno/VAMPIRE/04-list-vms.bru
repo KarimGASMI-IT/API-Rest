@@ -1,0 +1,14 @@
+meta {
+  name: List VMs
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/vms
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

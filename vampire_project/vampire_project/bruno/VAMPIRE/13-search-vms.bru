@@ -1,0 +1,14 @@
+meta {
+  name: Search VMs
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/api/vms/search?min_cpu=4&hyperviseur=qemu+kvm://172.17.3.99
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

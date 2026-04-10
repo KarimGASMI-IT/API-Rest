@@ -1,0 +1,22 @@
+meta {
+  name: Snapshot VM
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/api/vms/{{vmId}}/snapshot
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "snapshot_name": "snap-1"
+  }
+}
