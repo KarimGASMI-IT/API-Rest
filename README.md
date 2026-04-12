@@ -32,6 +32,7 @@ Elle fournit :
 * PyJWT
 * Bash (script de test)
 * Bruno CLI (tests API)
+* Bruno Application (Visualisation en direct)
 
 ---
 
@@ -287,6 +288,8 @@ Pour les tests avec Bruno CLI, la variable `{{baseUrl}}` a été remplacée par 
 Cela corrige un problème de gestion des variables dans l’environnement CLI (erreur `ENOTFOUND`).
 
 -> Aucun impact sur l’API ni sur le script de test.
+
+Par alleurs, j'ai aussi tester Bruno en application pour visualiser le tests API en direct
 
 ---
 
